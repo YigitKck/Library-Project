@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            prefWidth="900.0" prefHeight="600.0" style="-fx-background-color: #f4f6f8;" fx:controller="com.semy.controller.MainScreenController">
+
+    <top>
+        <HBox spacing="12.0" alignment="CENTER_LEFT" style="-fx-background-color: #ffffff;">
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+            </padding>
+            <Label text="📚 Kütüphane" style="-fx-font-size: 26; -fx-font-weight: bold;"/>
+            <TextField fx:id="searchField" promptText="Kitap ara..." HBox.hgrow="ALWAYS"
+                       style="-fx-background-color: #f0f0f0; -fx-background-radius: 8; -fx-padding: 10;"/>
+            <Button text="Ara" fx:id="searchButton"
+                    style="-fx-background-color: #1976d2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 10 20;"
+            onAction="#searchBook"/>
+
+            <Button text="Hesabım" fx:id="accountButton"
+                    style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 10 20;"
+                    onAction="#goToAccountPage"
+            />
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="15.0">
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+            </padding>
+
+            <Label text="📖 Kitaplar" style="-fx-font-size: 22; -fx-font-weight: bold;"/>
+
+            <ListView fx:id="bookListView" VBox.vgrow="ALWAYS"
+                      style="-fx-background-color: white; -fx-border-radius: 8; -fx-background-radius: 8;">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+
+                    </FXCollections>
+                </items>
+            </ListView>
+        </VBox>
+    </center>
+
+</BorderPane>
+

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #f4f6f8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.semy.controller.AccountController">
+
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-color: #ffffff;">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <Label style="-fx-font-size: 26; -fx-font-weight: bold;" text="Hesabım" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="homeButton" onAction="#goToHomePage" style="-fx-background-color: #1976d2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 10 20;" text="Ana Sayfa" />
+            <Button fx:id="checkReturn" onAction="#checkReturn" style="-fx-background-color: #1976d2; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 10 20;" text="İadeleri Kontrol Et" />
+        </HBox>
+    </top>
+
+
+    <center>
+        <VBox spacing="20.0">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+
+
+            <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-padding: 15;">
+                <Label style="-fx-font-size: 18; -fx-font-weight: bold;" text="Kullanıcı Bilgileri" />
+
+                <GridPane hgap="10" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="80" prefWidth="100" />
+                        <ColumnConstraints hgrow="ALWAYS" prefWidth="300" />
+                    </columnConstraints>
+
+
+                    <Label style="-fx-font-weight: bold;" text="E-posta:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="emailField" promptText="E-posta adresiniz" style="-fx-background-color: #f0f0f0; -fx-background-radius: 8; -fx-padding: 6;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+
+                </GridPane>
+            </VBox>
+
+
+            <VBox prefHeight="253.0" prefWidth="860.0" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-padding: 20;" VBox.vgrow="ALWAYS">
+                <Label style="-fx-font-size: 20; -fx-font-weight: bold;" text="📚 Kiraladığım Kitaplar" />
+
+                <TableView fx:id="rentedBooksTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn prefWidth="219.20003509521484" text="Kitap Adı" />
+                        <TableColumn prefWidth="175.199951171875" text="Yazar" />
+                        <TableColumn prefWidth="144.79998779296875" text="İade Tarihi" />
+                        <TableColumn prefWidth="120.800048828125" text="İşlemler" />
+                    </columns>
+
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+
+                        </FXCollections>
+                    </items>
+                </TableView>
+            </VBox>
+        </VBox>
+    </center>
+
+</BorderPane>
